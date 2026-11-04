@@ -28,6 +28,14 @@ descriptions requires re-rendering this repo in the same change.
      `mcp.json`, `gemini-extension.json`, `.cursor-plugin/plugin.json` and
      `.claude-plugin/plugin.json` from the bundle list (install/config URLs
      carry per-venue `?venue=` attribution per playbook section 0.3).
+
+**Adding a future bundle:** in the SAME commit and push, also generate its
+Cursor one-click deeplink
+(`https://cursor.com/en/install-mcp?name=tyms-<slug>&config=<base64url of {"url":"<endpoint>?venue=cursor"}>`)
+and add it to the Cursor deeplink list in `llms-install.md`, alongside the
+README table row, the `llms-install.md` server-table row, the demo file, and
+the plugin/extension manifests. A bundle is not rendered until its deeplink
+ships with everything else.
 3. Render-time sanitization (hard rule — the internal demo files record the
    test environment; the public copies must not):
    - Replace `Environment: <preview-host> (...)` lines with
