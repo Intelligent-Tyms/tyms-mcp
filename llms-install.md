@@ -58,13 +58,23 @@ Machine-readable install instructions for the 12 Tyms Market Intelligence MCP se
 
 ### Cursor
 
-One-click deeplink per server:
+One-click install deeplinks (checklist 1.5; config URLs carry `?venue=cursor`
+attribution — the README table's links carry `?venue=github` instead):
 
-```
-https://cursor.com/en/install-mcp?name=tyms-procurement-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9wcm9jdXJlbWVudC91Zz92ZW51ZT1naXRodWIifQ
-```
+- Tyms Procurement — Uganda: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-procurement-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9wcm9jdXJlbWVudC91Zz92ZW51ZT1jdXJzb3IifQ)
+- Tyms Business News — Uganda: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9idXNpbmVzcy1uZXdzL3VnP3ZlbnVlPWN1cnNvciJ9)
+- Tyms Business News — Kenya: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-ke&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9idXNpbmVzcy1uZXdzL2tlP3ZlbnVlPWN1cnNvciJ9)
+- Tyms Business News — Tanzania: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-tz&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9idXNpbmVzcy1uZXdzL3R6P3ZlbnVlPWN1cnNvciJ9)
+- Tyms Business News — Rwanda: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-rw&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9idXNpbmVzcy1uZXdzL3J3P3ZlbnVlPWN1cnNvciJ9)
+- Tyms Financial Markets — Uganda: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-financial-markets-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9maW5hbmNpYWwtbWFya2V0cy91Zz92ZW51ZT1jdXJzb3IifQ)
+- Tyms Financial Markets — Kenya: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-financial-markets-ke&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9maW5hbmNpYWwtbWFya2V0cy9rZT92ZW51ZT1jdXJzb3IifQ)
+- Tyms Logistics — East Africa: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-logistics-ea&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9sb2dpc3RpY3MvZWE_dmVudWU9Y3Vyc29yIn0)
+- Tyms Capital Deployment — Africa: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-capital-deployment-africa&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9jYXBpdGFsLWRlcGxveW1lbnQvYWZyaWNhP3ZlbnVlPWN1cnNvciJ9)
+- Tyms Mining — Uganda: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-mining-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taW5pbmcvdWc_dmVudWU9Y3Vyc29yIn0)
+- Tyms Land & Property — Uganda: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-land-property-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9sYW5kLXByb3BlcnR5L3VnP3ZlbnVlPWN1cnNvciJ9)
 
-(Substitute any row from the table; the `config` value is base64url of `{"url":"<endpoint>?venue=github"}`.) Or add the URL manually under Cursor's MCP settings.
+The `config` value is base64url of `{"url":"<endpoint>?venue=cursor"}`. Or
+add any endpoint URL from the table above manually under Cursor's MCP settings.
 
 ### Gemini CLI
 
