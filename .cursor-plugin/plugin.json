@@ -1,0 +1,30 @@
+{
+  "name": "tyms-market-intelligence",
+  "displayName": "Tyms Market Intelligence",
+  "version": "1.0.0",
+  "description": "Verified East Africa market intelligence: business news, financial markets, procurement, logistics, mining, land and coffee prices.",
+  "author": {
+    "name": "Tyms",
+    "url": "https://tyms.ai"
+  },
+  "homepage": "https://mi-api.tyms.ai/demo?utm_source=cursor&utm_medium=listing&utm_campaign=wave1&venue=cursor",
+  "license": "MIT",
+  "keywords": [
+    "africa",
+    "east-africa",
+    "uganda",
+    "kenya",
+    "tanzania",
+    "rwanda",
+    "market-intelligence",
+    "procurement",
+    "tenders",
+    "forex",
+    "t-bills",
+    "business-news",
+    "logistics",
+    "mining",
+    "land-registry",
+    "coffee-prices"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "name": "tyms-market-intelligence",
+  "version": "1.0.0",
+  "description": "Verified East Africa market intelligence for AI agents: business news, FX and T-bills, procurement, logistics, mining, land and coffee prices — 12 hosted read-only MCP servers.",
+  "author": {
+    "name": "Tyms",
+    "url": "https://tyms.ai"
+  },
+  "homepage": "https://mi-api.tyms.ai/demo?utm_source=anthropic&utm_medium=listing&utm_campaign=wave1&venue=anthropic",
+  "license": "MIT",
+  "keywords": [
+    "market-intelligence",
+    "africa",
+    "procurement",
+    "finance",
+    "news"
+  ],
+  "mcpServers": {
+    "tyms-procurement-ug": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/procurement/ug?venue=anthropic"
+    },
+    "tyms-business-news-ug": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/business-news/ug?venue=anthropic"
+    },
+    "tyms-business-news-ke": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/business-news/ke?venue=anthropic"
+    },
+    "tyms-business-news-tz": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/business-news/tz?venue=anthropic"
+    },
+    "tyms-business-news-rw": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/business-news/rw?venue=anthropic"
+    },
+    "tyms-financial-markets-ug": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/financial-markets/ug?venue=anthropic"
+    },
+    "tyms-financial-markets-ke": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/financial-markets/ke?venue=anthropic"
+    },
+    "tyms-logistics-ea": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/logistics/ea?venue=anthropic"
+    },
+    "tyms-capital-deployment-africa": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/capital-deployment/africa?venue=anthropic"
+    },
+    "tyms-mining-ug": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/mining/ug?venue=anthropic"
+    },
+    "tyms-land-property-ug": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/land-property/ug?venue=anthropic"
+    },
+    "tyms-coffee-prices-ug": {
+      "type": "http",
+      "url": "https://mi-api.tyms.ai/mcp/coffee-prices/ug?venue=anthropic"
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "_readme": [
+    "Tyms MI — official MCP Registry server.json drafts (2026-11-02).",
+    "The registry publishes ONE server per server.json; it has no multi-server publish.",
+    "Extract any element of `drafts` into its own server.json and run:",
+    "  mcp-publisher validate server.json && mcp-publisher publish",
+    "Namespace ai.tyms/* requires DNS authentication: TXT record at the APEX of tyms.ai",
+    "(SPF-style placement; selector-style records fail). See playbook.md section 3.",
+    "Hostname resolved 2026-11-02: drafts point at production mi-api.tyms.ai (verified live).",
+    "Before publishing, confirm each /mcp/{domain}/{region} route answers on production",
+    "Descriptions are capped at 100 chars by the registry; all drafts comply (see _descriptionLengths).",
+    "websiteUrl carries venue=mcp-registry UTM attribution (see playbook.md section on attribution); replace the host with the marketing/docs site when available, keeping the utm params."
+  ],
+  "_descriptionLengths": {
+    "ai.tyms/procurement-ug": 84,
+    "ai.tyms/business-news-ug": 89,
+    "ai.tyms/business-news-ke": 88,
+    "ai.tyms/business-news-tz": 91,
+    "ai.tyms/business-news-rw": 89,
+    "ai.tyms/financial-markets-ug": 79,
+    "ai.tyms/financial-markets-ke": 79,
+    "ai.tyms/logistics-ea": 83,
+    "ai.tyms/capital-deployment-africa": 88,
+    "ai.tyms/mining-ug": 75,
+    "ai.tyms/land-property-ug": 76
+  },
+  "drafts": [
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/procurement-ug",
+      "title": "Tyms Procurement — Uganda",
+      "description": "Uganda public procurement: notices, awards, contracts, buyers, suppliers, debarments",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/procurement/ug"
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/business-news-ug",
+      "title": "Tyms Business News — Uganda",
+      "description": "Curated Uganda business news from national sources, with verification status and coverage",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/business-news/ug"
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/business-news-ke",
+      "title": "Tyms Business News — Kenya",
+      "description": "Curated Kenya business news from national sources, with verification status and coverage",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/business-news/ke"
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/business-news-tz",
+      "title": "Tyms Business News — Tanzania",
+      "description": "Curated Tanzania business news from national sources, with verification status and coverage",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/business-news/tz"
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/business-news-rw",
+      "title": "Tyms Business News — Rwanda",
+      "description": "Curated Rwanda business news from national sources, with verification status and coverage",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/business-news/rw"
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/financial-markets-ug",
+      "title": "Tyms Financial Markets — Uganda",
+      "description": "Bank of Uganda FX rates, T-bills and money-market series with coverage metadata",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/financial-markets/ug"
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/financial-markets-ke",
+      "title": "Tyms Financial Markets — Kenya",
+      "description": "Kenya financial-market series: FX, yields and macro data with coverage metadata",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/financial-markets/ke"
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/logistics-ea",
+      "title": "Tyms Logistics — East Africa",
+      "description": "East Africa logistics: corridor KPIs, fuel prices, trade flows and policy documents",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/logistics/ea"
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/capital-deployment-africa",
+      "title": "Tyms Capital Deployment — Africa",
+      "description": "African capital deployment: projects, deals, commitments and reports with evidence links",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/capital-deployment/africa"
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/mining-ug",
+      "title": "Tyms Mining — Uganda",
+      "description": "Uganda mining licences and grant events with evidence and coverage tracking",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/mining/ug"
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/land-property-ug",
+      "title": "Tyms Land & Property — Uganda",
+      "description": "Uganda land and property: public notices, price indices and market snapshots",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/land-property/ug"
+        }
+      ]
+    }
+  ]
+}

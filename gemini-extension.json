@@ -1,0 +1,56 @@
+{
+  "name": "tyms-market-intelligence",
+  "version": "1.0.0",
+  "description": "Verified East Africa market intelligence for AI agents: news, markets, procurement, trade.",
+  "homepage": "https://mi-api.tyms.ai/demo?utm_source=gemini-cli&utm_medium=listing&utm_campaign=wave1&venue=gemini-cli",
+  "mcpServers": {
+    "tyms-procurement-ug": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/procurement/ug?venue=gemini-cli",
+      "description": "Uganda public procurement: notices, awards, contracts, buyers, suppliers, debarments"
+    },
+    "tyms-business-news-ug": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/business-news/ug?venue=gemini-cli",
+      "description": "Curated Uganda business news from national sources, with verification status and coverage"
+    },
+    "tyms-business-news-ke": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/business-news/ke?venue=gemini-cli",
+      "description": "Curated Kenya business news from national sources, with verification status and coverage"
+    },
+    "tyms-business-news-tz": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/business-news/tz?venue=gemini-cli",
+      "description": "Curated Tanzania business news from national sources, with verification status and coverage"
+    },
+    "tyms-business-news-rw": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/business-news/rw?venue=gemini-cli",
+      "description": "Curated Rwanda business news from national sources, with verification status and coverage"
+    },
+    "tyms-financial-markets-ug": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/financial-markets/ug?venue=gemini-cli",
+      "description": "Bank of Uganda FX rates, T-bills and money-market series with coverage metadata"
+    },
+    "tyms-financial-markets-ke": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/financial-markets/ke?venue=gemini-cli",
+      "description": "Kenya financial-market series: FX, yields and macro data with coverage metadata"
+    },
+    "tyms-logistics-ea": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/logistics/ea?venue=gemini-cli",
+      "description": "East Africa logistics: corridor KPIs, fuel prices, trade flows and policy documents"
+    },
+    "tyms-capital-deployment-africa": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/capital-deployment/africa?venue=gemini-cli",
+      "description": "African capital deployment: projects, deals, commitments and reports with evidence links"
+    },
+    "tyms-mining-ug": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/mining/ug?venue=gemini-cli",
+      "description": "Uganda mining licences and grant events with evidence and coverage tracking"
+    },
+    "tyms-land-property-ug": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/land-property/ug?venue=gemini-cli",
+      "description": "Uganda land and property: public notices, price indices and market snapshots"
+    },
+    "tyms-coffee-prices-ug": {
+      "httpUrl": "https://mi-api.tyms.ai/mcp/coffee-prices/ug?venue=gemini-cli",
+      "description": "Uganda coffee prices: UCDA farmgate and export series, World Bank benchmarks, with coverage"
+    }
+  }
+}
