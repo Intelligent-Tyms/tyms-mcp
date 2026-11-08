@@ -11,11 +11,11 @@
     "Hostname: drafts point at production mi-api.tyms.ai (verified live 2026-11-08:",
     "all 13 /mcp/{domain}/{region} routes answer 401 + RFC 9728 resource_metadata).",
     "Descriptions are capped at 100 chars by the registry; all drafts comply (see _descriptionLengths).",
-    "supportedProtocolVersions matches what PRODUCTION serves today (old SDK). Master",
-    "carries the v2 SDK (2026-07-28 protocol entry, commit 0acb012, 2026-11-07); when the",
-    "next production deploy ships it, update the control-plane platform config, re-render",
-    "all three surfaces + this copy in the same change (mcp-general-principles §9), and",
-    "extend the version list then — do not advertise versions production does not serve.",
+    "supportedProtocolVersions matches what production serves: the 2026-11-08 deploy",
+    "(version c33e0a70, master f996a25 incl. v2 SDK 0acb012) ships 2025-03-26, 2025-06-18 and",
+    "2025-11-25 — verified live on all 12 routes 2026-11-08 (initialize + tools/list 163",
+    "tools titled; production pre-flight green). Control-plane platform config, the three",
+    "rendered surfaces and this copy changed in one step (mcp-general-principles §9).",
     "websiteUrl carries venue=mcp-registry UTM attribution (playbook.md §0.3); registry",
     "remotes[].url stays canonical (no query params)."
   ],
@@ -47,7 +47,8 @@
           "url": "https://mi-api.tyms.ai/mcp/business-news/ke",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
@@ -65,7 +66,8 @@
           "url": "https://mi-api.tyms.ai/mcp/business-news/rw",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
@@ -83,7 +85,8 @@
           "url": "https://mi-api.tyms.ai/mcp/business-news/tz",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
@@ -101,7 +104,8 @@
           "url": "https://mi-api.tyms.ai/mcp/business-news/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
@@ -119,7 +123,8 @@
           "url": "https://mi-api.tyms.ai/mcp/capital-deployment/africa",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
@@ -137,7 +142,8 @@
           "url": "https://mi-api.tyms.ai/mcp/coffee-prices/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
@@ -155,7 +161,8 @@
           "url": "https://mi-api.tyms.ai/mcp/financial-markets/ke",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
@@ -173,7 +180,8 @@
           "url": "https://mi-api.tyms.ai/mcp/financial-markets/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
@@ -191,7 +199,8 @@
           "url": "https://mi-api.tyms.ai/mcp/land-property/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
@@ -209,7 +218,8 @@
           "url": "https://mi-api.tyms.ai/mcp/logistics/ea",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
@@ -227,7 +237,8 @@
           "url": "https://mi-api.tyms.ai/mcp/mining/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
@@ -245,7 +256,8 @@
           "url": "https://mi-api.tyms.ai/mcp/procurement/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
-            "2025-06-18"
+            "2025-06-18",
+            "2025-11-25"
           ]
         }
       ]
