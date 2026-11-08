@@ -72,6 +72,7 @@ attribution — the README table's links carry `?venue=github` instead):
 - Tyms Capital Deployment — Africa: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-capital-deployment-africa&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9jYXBpdGFsLWRlcGxveW1lbnQvYWZyaWNhP3ZlbnVlPWN1cnNvciJ9)
 - Tyms Mining — Uganda: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-mining-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taW5pbmcvdWc_dmVudWU9Y3Vyc29yIn0)
 - Tyms Land & Property — Uganda: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-land-property-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9sYW5kLXByb3BlcnR5L3VnP3ZlbnVlPWN1cnNvciJ9)
+- Tyms Coffee Prices — Uganda: [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-coffee-prices-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9jb2ZmZWUtcHJpY2VzL3VnP3ZlbnVlPWN1cnNvciJ9)
 
 The `config` value is base64url of `{"url":"<endpoint>?venue=cursor"}`. Or
 add any endpoint URL from the table above manually under Cursor's MCP settings.

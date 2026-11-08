@@ -15,11 +15,13 @@ All endpoints are Streamable HTTP MCP servers at `https://mi-api.tyms.ai/mcp/{do
 | Tyms Business News — Rwanda | `https://mi-api.tyms.ai/mcp/business-news/rw` | 9 | Curated Rwanda business news from national sources, with verification status and coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-rw&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9idXNpbmVzcy1uZXdzL3J3P3ZlbnVlPWdpdGh1YiJ9) |
 | Tyms Financial Markets — Uganda | `https://mi-api.tyms.ai/mcp/financial-markets/ug` | 9 | Bank of Uganda FX rates, T-bills and money-market series with coverage metadata | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-financial-markets-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9maW5hbmNpYWwtbWFya2V0cy91Zz92ZW51ZT1naXRodWIifQ) |
 | Tyms Financial Markets — Kenya | `https://mi-api.tyms.ai/mcp/financial-markets/ke` | 9 | Kenya financial-market series: FX, yields and macro data with coverage metadata | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-financial-markets-ke&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9maW5hbmNpYWwtbWFya2V0cy9rZT92ZW51ZT1naXRodWIifQ) |
-| Tyms Logistics — East Africa | `https://mi-api.tyms.ai/mcp/logistics/ea` | 13 | East Africa logistics: corridor KPIs, fuel prices, trade flows and policy documents | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-logistics-ea&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9sb2dpc3RpY3MvZWE_dmVudWU9Z2l0aHViIn0) |
+| Tyms Logistics — East Africa | `https://mi-api.tyms.ai/mcp/logistics/ea` | 15 | East Africa logistics: corridor KPIs, fuel prices, trade flows and policy documents | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-logistics-ea&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9sb2dpc3RpY3MvZWE_dmVudWU9Z2l0aHViIn0) |
 | Tyms Capital Deployment — Africa | `https://mi-api.tyms.ai/mcp/capital-deployment/africa` | 20 | African capital deployment: projects, deals, commitments and reports with evidence links | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-capital-deployment-africa&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9jYXBpdGFsLWRlcGxveW1lbnQvYWZyaWNhP3ZlbnVlPWdpdGh1YiJ9) |
-| Tyms Mining — Uganda | `https://mi-api.tyms.ai/mcp/mining/ug` | 9 | Uganda mining licences and grant events with evidence and coverage tracking | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-mining-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taW5pbmcvdWc_dmVudWU9Z2l0aHViIn0) |
+| Tyms Mining — Uganda | `https://mi-api.tyms.ai/mcp/mining/ug` | 7 | Uganda mining licences and grant events with evidence and coverage tracking | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-mining-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taW5pbmcvdWc_dmVudWU9Z2l0aHViIn0) |
 | Tyms Land & Property — Uganda | `https://mi-api.tyms.ai/mcp/land-property/ug` | 15 | Uganda land and property: public notices, price indices and market snapshots | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-land-property-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9sYW5kLXByb3BlcnR5L3VnP3ZlbnVlPWdpdGh1YiJ9) |
-| Tyms Coffee Prices — Uganda | `https://mi-api.tyms.ai/mcp/coffee-prices/ug` | 11 | Uganda coffee prices: UCDA farmgate and export series, World Bank benchmarks, with coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-coffee-prices-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9jb2ZmZWUtcHJpY2VzL3VnP3ZlbnVlPWdpdGh1YiJ9) |
+| Tyms Coffee Prices — Uganda | `https://mi-api.tyms.ai/mcp/coffee-prices/ug` | 10 | Uganda coffee prices: UCDA farmgate and export series, World Bank benchmarks, with coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-coffee-prices-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9jb2ZmZWUtcHJpY2VzL3VnP3ZlbnVlPWdpdGh1YiJ9) |
+
+Tool counts are **catalogue totals**: every task, specialist and compatibility tool the dataset exposes, excluding the two onboarding tools (`about_dataset`, `getting_started`) every server also serves. Because tools are scope-filtered per caller, the catalogue total is the only deterministic public number; a connected client with narrow scopes may see fewer.
 
 ## Quickstart
 
@@ -72,8 +74,8 @@ Sign-in is Tyms OAuth (issuer `https://auth.tyms.ai`), discovered automatically 
 
 ## Legal
 
-- Privacy policy: TODO — page pending, will be published under https://tyms.ai
-- Terms of Service: TODO — page pending, will be published under https://tyms.ai
+- Privacy policy: https://tyms.ai/privacy
+- Terms of Service: https://tyms.ai/terms
 
 ## Demo queries
 
@@ -81,7 +83,7 @@ Ten tried-and-tested example queries per bundle (what to ask, which tool serves 
 
 ## Registry metadata
 
-`server.json` holds the official MCP Registry drafts (`ai.tyms/*` namespace) for the 11 registry-listed bundles. This repo is a rendered copy — see [MAINTAINING.md](MAINTAINING.md) before editing.
+`server.json` holds the official MCP Registry drafts (`ai.tyms/*` namespace) for the 12 registry-listed bundles. This repo is a rendered copy — see [MAINTAINING.md](MAINTAINING.md) before editing.
 
 ## License
 

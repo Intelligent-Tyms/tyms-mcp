@@ -1,58 +1,39 @@
 {
   "_readme": [
-    "Tyms MI — official MCP Registry server.json drafts (2026-11-02).",
+    "Tyms MI — official MCP Registry server.json drafts (refreshed 2026-11-08 from the",
+    "control-plane generated set; closes C8b: adds the coffee-prices-ug draft and",
+    "remotes[].supportedProtocolVersions on every draft).",
     "The registry publishes ONE server per server.json; it has no multi-server publish.",
     "Extract any element of `drafts` into its own server.json and run:",
     "  mcp-publisher validate server.json && mcp-publisher publish",
-    "Namespace ai.tyms/* requires DNS authentication: TXT record at the APEX of tyms.ai",
-    "(SPF-style placement; selector-style records fail). See playbook.md section 3.",
-    "Hostname resolved 2026-11-02: drafts point at production mi-api.tyms.ai (verified live).",
-    "Before publishing, confirm each /mcp/{domain}/{region} route answers on production",
+    "Namespace ai.tyms/* is DNS-authenticated at the tyms.ai apex (TXT in place;",
+    "Ed25519 key staged at ~/.config/tyms/mcp-registry-ed25519.key on the devbox).",
+    "Hostname: drafts point at production mi-api.tyms.ai (verified live 2026-11-08:",
+    "all 13 /mcp/{domain}/{region} routes answer 401 + RFC 9728 resource_metadata).",
     "Descriptions are capped at 100 chars by the registry; all drafts comply (see _descriptionLengths).",
-    "websiteUrl carries venue=mcp-registry UTM attribution (see playbook.md section on attribution); replace the host with the marketing/docs site when available, keeping the utm params."
+    "supportedProtocolVersions matches what PRODUCTION serves today (old SDK). Master",
+    "carries the v2 SDK (2026-07-28 protocol entry, commit 0acb012, 2026-11-07); when the",
+    "next production deploy ships it, update the control-plane platform config, re-render",
+    "all three surfaces + this copy in the same change (mcp-general-principles §9), and",
+    "extend the version list then — do not advertise versions production does not serve.",
+    "websiteUrl carries venue=mcp-registry UTM attribution (playbook.md §0.3); registry",
+    "remotes[].url stays canonical (no query params)."
   ],
   "_descriptionLengths": {
-    "ai.tyms/procurement-ug": 84,
-    "ai.tyms/business-news-ug": 89,
     "ai.tyms/business-news-ke": 88,
-    "ai.tyms/business-news-tz": 91,
     "ai.tyms/business-news-rw": 89,
-    "ai.tyms/financial-markets-ug": 79,
-    "ai.tyms/financial-markets-ke": 79,
-    "ai.tyms/logistics-ea": 83,
+    "ai.tyms/business-news-tz": 91,
+    "ai.tyms/business-news-ug": 89,
     "ai.tyms/capital-deployment-africa": 88,
+    "ai.tyms/coffee-prices-ug": 91,
+    "ai.tyms/financial-markets-ke": 79,
+    "ai.tyms/financial-markets-ug": 79,
+    "ai.tyms/land-property-ug": 76,
+    "ai.tyms/logistics-ea": 83,
     "ai.tyms/mining-ug": 75,
-    "ai.tyms/land-property-ug": 76
+    "ai.tyms/procurement-ug": 84
   },
   "drafts": [
-    {
-      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-      "name": "ai.tyms/procurement-ug",
-      "title": "Tyms Procurement — Uganda",
-      "description": "Uganda public procurement: notices, awards, contracts, buyers, suppliers, debarments",
-      "version": "1.0.0",
-      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
-      "remotes": [
-        {
-          "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/procurement/ug"
-        }
-      ]
-    },
-    {
-      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-      "name": "ai.tyms/business-news-ug",
-      "title": "Tyms Business News — Uganda",
-      "description": "Curated Uganda business news from national sources, with verification status and coverage",
-      "version": "1.0.0",
-      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
-      "remotes": [
-        {
-          "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/business-news/ug"
-        }
-      ]
-    },
     {
       "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
       "name": "ai.tyms/business-news-ke",
@@ -63,21 +44,11 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/business-news/ke"
-        }
-      ]
-    },
-    {
-      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-      "name": "ai.tyms/business-news-tz",
-      "title": "Tyms Business News — Tanzania",
-      "description": "Curated Tanzania business news from national sources, with verification status and coverage",
-      "version": "1.0.0",
-      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
-      "remotes": [
-        {
-          "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/business-news/tz"
+          "url": "https://mi-api.tyms.ai/mcp/business-news/ke",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
         }
       ]
     },
@@ -91,49 +62,47 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/business-news/rw"
+          "url": "https://mi-api.tyms.ai/mcp/business-news/rw",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
         }
       ]
     },
     {
       "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-      "name": "ai.tyms/financial-markets-ug",
-      "title": "Tyms Financial Markets — Uganda",
-      "description": "Bank of Uganda FX rates, T-bills and money-market series with coverage metadata",
+      "name": "ai.tyms/business-news-tz",
+      "title": "Tyms Business News — Tanzania",
+      "description": "Curated Tanzania business news from national sources, with verification status and coverage",
       "version": "1.0.0",
       "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/financial-markets/ug"
+          "url": "https://mi-api.tyms.ai/mcp/business-news/tz",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
         }
       ]
     },
     {
       "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-      "name": "ai.tyms/financial-markets-ke",
-      "title": "Tyms Financial Markets — Kenya",
-      "description": "Kenya financial-market series: FX, yields and macro data with coverage metadata",
+      "name": "ai.tyms/business-news-ug",
+      "title": "Tyms Business News — Uganda",
+      "description": "Curated Uganda business news from national sources, with verification status and coverage",
       "version": "1.0.0",
       "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/financial-markets/ke"
-        }
-      ]
-    },
-    {
-      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-      "name": "ai.tyms/logistics-ea",
-      "title": "Tyms Logistics — East Africa",
-      "description": "East Africa logistics: corridor KPIs, fuel prices, trade flows and policy documents",
-      "version": "1.0.0",
-      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
-      "remotes": [
-        {
-          "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/logistics/ea"
+          "url": "https://mi-api.tyms.ai/mcp/business-news/ug",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
         }
       ]
     },
@@ -147,21 +116,65 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/capital-deployment/africa"
+          "url": "https://mi-api.tyms.ai/mcp/capital-deployment/africa",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
         }
       ]
     },
     {
       "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-      "name": "ai.tyms/mining-ug",
-      "title": "Tyms Mining — Uganda",
-      "description": "Uganda mining licences and grant events with evidence and coverage tracking",
+      "name": "ai.tyms/coffee-prices-ug",
+      "title": "Tyms Coffee Prices — Uganda",
+      "description": "Uganda coffee prices: UCDA farmgate and export series, World Bank benchmarks, with coverage",
       "version": "1.0.0",
       "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/mining/ug"
+          "url": "https://mi-api.tyms.ai/mcp/coffee-prices/ug",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/financial-markets-ke",
+      "title": "Tyms Financial Markets — Kenya",
+      "description": "Kenya financial-market series: FX, yields and macro data with coverage metadata",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/financial-markets/ke",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/financial-markets-ug",
+      "title": "Tyms Financial Markets — Uganda",
+      "description": "Bank of Uganda FX rates, T-bills and money-market series with coverage metadata",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/financial-markets/ug",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
         }
       ]
     },
@@ -175,7 +188,65 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/land-property/ug"
+          "url": "https://mi-api.tyms.ai/mcp/land-property/ug",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/logistics-ea",
+      "title": "Tyms Logistics — East Africa",
+      "description": "East Africa logistics: corridor KPIs, fuel prices, trade flows and policy documents",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/logistics/ea",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/mining-ug",
+      "title": "Tyms Mining — Uganda",
+      "description": "Uganda mining licences and grant events with evidence and coverage tracking",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/mining/ug",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/procurement-ug",
+      "title": "Tyms Procurement — Uganda",
+      "description": "Uganda public procurement: notices, awards, contracts, buyers, suppliers, debarments",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/procurement/ug",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18"
+          ]
         }
       ]
     }

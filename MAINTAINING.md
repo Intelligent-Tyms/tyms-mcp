@@ -36,6 +36,14 @@ and add it to the Cursor deeplink list in `llms-install.md`, alongside the
 README table row, the `llms-install.md` server-table row, the demo file, and
 the plugin/extension manifests. A bundle is not rendered until its deeplink
 ships with everything else.
+
+**Tool counts (convention, set 2026-11-08 closing C15):** README table counts
+use the **catalogue total** from the control-plane generated listing-table
+(every task/specialist/compatibility tool, excluding the two onboarding tools
+`about_dataset`/`getting_started`, including tools unavailable at scope).
+Counts are caller-dependent under scope filtering, so the catalogue total is
+the only deterministic public number. Re-check counts against
+`docs/generated/mcp-surfaces/listing-table.md` on every re-render.
 3. Render-time sanitization (hard rule — the internal demo files record the
    test environment; the public copies must not):
    - Replace `Environment: <preview-host> (...)` lines with
@@ -54,5 +62,5 @@ ships with everything else.
 
 - No runtime code. The servers are hosted at `mi-api.tyms.ai`; this repo only
   carries manifests, registry drafts and docs.
-- Not the place for privacy policy or terms text — link to tyms.ai pages once
-  they exist (currently TODO in README).
+- Not the place for privacy policy or terms text — link to the live tyms.ai
+  pages (https://tyms.ai/privacy, https://tyms.ai/terms).
