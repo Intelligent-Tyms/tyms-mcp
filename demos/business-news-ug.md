@@ -3,6 +3,7 @@
 Live-tested 2026-11-03 against the connected preview MCP. Result legend: PASS = acceptance note met; PARTIAL = usable but degraded; FAIL = acceptance note not met.
 Data state at test time: ~2,141 observed items across the 58 declared sources in the visible window; freshest items 2026-11-03. Evidence modes: mostly full-record; ceoea/pmldaily reference-only; kilimo link-only.
 
+Contract update 2026-11-09: use canonical `text` and `sourceSystem`; legacy `query` and `source` remain compatibility-only.
 
 ## The 10 queries
 
@@ -10,10 +11,10 @@ Data state at test time: ~2,141 observed items across the 58 declared sources in
 2. **Where do I start?** (cold-start) — `getting_started`. Accept: points at about_dataset + task tools. **PASS** (122ms).
 3. **What's the latest on Uganda coffee?** (core find) — `find_articles topic=coffee limit=5`. Accept: >=3 recent headlines with publicIds. **PASS** — 5 hits (observer, foodbusinessmea, ceoea, softpower, nilepost) (336ms).
 4. **Open the Observer coffee story.** (core inspect) — `inspect_article bn-ug-observer-73921`. Accept: full record, verification, rights-permitted body. **PARTIAL** — record + SOURCE_ATTESTED verification fine, but `articleBody.status=withheld (source_exposure_posture)` and `includeEvidence=true` returns 0 evidence despite evidenceIds present. Body never readable (1297ms).
-5. **What did Nile Post publish this week?** (core find) — `find_articles source=nilepost publishedAfter=2026-10-27`. Accept: dated headlines from nilepost only. **PASS** — 5 fresh items (287ms).
-6. **Any headlines mentioning Bank of Uganda?** (core find, substring) — `find_articles query="Bank of Uganda"`. Accept: matching headlines. **PASS but slow** — 5 hits, 9.5s latency (substring scan) (9453ms).
+5. **What did Nile Post publish this week?** (core find) — `find_articles sourceSystem=nilepost publishedAfter=2026-10-27`. Accept: dated headlines from nilepost only. **PASS** — 5 fresh items (287ms).
+6. **Any headlines mentioning Bank of Uganda?** (core find, substring) — `find_articles text="Bank of Uganda"`. Accept: matching headlines. **PASS but slow** — 5 hits, 9.5s latency (substring scan) (9453ms).
 7. **Which sources are covered and how much from each?** (coverage) — `assess_coverage` paginated. Accept: per-source counts + freshness + evidence modes. **PASS** — 5 pages, 128 windowed segments, ~2141 items (14s for full pagination).
-8. **How fresh is The Observer?** (freshness) — `assess_coverage source=observer`. Accept: latestPublishedAt within days. **PASS** — 2026-11-01T13:23Z, refresh 15:00Z (411ms).
+8. **How fresh is The Observer?** (freshness) — `assess_coverage sourceSystem=observer`. Accept: latestPublishedAt within days. **PASS** — 2026-11-01T13:23Z, refresh 15:00Z (411ms).
 9. **What changed in the last 48 hours?** (what's-new) — `review_changes since=2026-11-01`. Accept: change records. **FAIL** — 0 records; pagination emits 40+ consecutive empty pages (~4s each, 168s abandoned) despite items published in-window. Failure class: continuation-after-bounded-empty (change feed unpopulated).
 10. **What are this week's top business themes?** (synthesis) — `find_articles topic=energy` + `topic=banking` windowed, cite publicIds. Accept: cross-source synthesis with citations. **PASS** — Umeme court ruling, solar investment push (energy); dfcu 16.9% home loans across 3 sources (banking) (736ms).
 
@@ -39,11 +40,11 @@ Data state at test time: ~2,141 observed items across the 58 declared sources in
 1. Orientation line: "58 Ugandan sources, refreshed within 6 hours on business days, ~2,100 items visible now."
 2. `find_articles topic=coffee` → instant 5 headlines (Mbale-China coffee markets, AU export strategy, Chinese buyers cutting middlemen).
 3. `inspect_article` on the Observer piece → full metadata, SOURCE_ATTESTED verification, canonical URL, evidence IDs.
-4. `assess_coverage source=observer` → 48 items, latest 2026-11-01.
+4. `assess_coverage sourceSystem=observer` → 48 items, latest 2026-11-01.
 *Why it matters for a buyer:* one call turns "monitor the Ugandan coffee beat" from a scraping project into a query — with per-publisher attribution and rights posture attached.
 
 ## Run 2 — preview re-test (2026-11-03)
-Environment: pre-production preview deployment, via MCP-over-HTTP. Preview corpus is older than production (newest bn-ug publication 2026-09-28), so windows use August dates.
+Environment: pre-production preview deployment.
 
 | Q | Query | Run 1 | Run 2 (preview) | Notes |
 |---|---|---|---|---|

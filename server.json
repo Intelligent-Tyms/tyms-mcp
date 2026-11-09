@@ -1,6 +1,6 @@
 {
   "_readme": [
-    "Tyms MI — official MCP Registry server.json drafts (refreshed 2026-11-08 from the",
+    "Tyms MI — official MCP Registry server.json drafts (refreshed 2026-11-09 from the",
     "control-plane generated set; closes C8b: adds the coffee-prices-ug draft and",
     "remotes[].supportedProtocolVersions on every draft).",
     "The registry publishes ONE server per server.json; it has no multi-server publish.",
@@ -14,7 +14,7 @@
     "supportedProtocolVersions matches what production serves: the 2026-11-08 deploy",
     "(version c33e0a70, master f996a25 incl. v2 SDK 0acb012) ships 2025-03-26, 2025-06-18 and",
     "2025-11-25 — verified live on all 12 routes 2026-11-08 (initialize + tools/list 163",
-    "tools titled; production pre-flight green). Control-plane platform config, the three",
+    "tools titled; production pre-flight green). 2026-11-09 offline real-route contract snapshot: 168 tools titled; no deploy performed. Control-plane platform config, the three",
     "rendered surfaces and this copy changed in one step (mcp-general-principles §9).",
     "websiteUrl carries venue=mcp-registry UTM attribution (playbook.md §0.3); registry",
     "remotes[].url stays canonical (no query params)."

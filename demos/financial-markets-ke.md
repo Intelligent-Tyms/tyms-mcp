@@ -6,9 +6,9 @@ Live-tested 2026-11-03. Data state: production lane since 2026-10-12; FX 694 obs
 
 1. **What's in this dataset?** — `about_dataset`. **PASS** (147ms).
 2. **Where do I start?** — `getting_started`. **PASS** (115ms).
-3. **What's the current USD/KES rate?** — `find_series text=USD surface=fx` → `get_observations`. **PASS** — 2026-11-03 indicative mid 129.97 (CBK), provenance URL centralbank.go.ke/forex. Latency: find 17s, obs 7s.
+3. **What's the current USD/KES rate?** — `find_series text=USD surface=fx` → `find_observations`. **PASS** — 2026-11-03 indicative mid 129.97 (CBK), provenance URL centralbank.go.ke/forex. Latency: find 17s, obs 7s.
 4. **Open today's FX observation with evidence.** — `inspect_observation includeEvidence=true`. **PARTIAL** — record complete, evidence array empty despite evidenceIds (EVIDENCE_UNAVAILABLE pattern) (1.2s).
-5. **Absa Bank's recent NSE closes?** — `find_series text=Absa surface=equities` → `get_observations`. **PASS** — 5 trading-day observations 26-30 Oct with per-day records. Latency warning: find_series text search took 42s.
+5. **Absa Bank's recent NSE closes?** — `find_series text=Absa surface=equities` → `find_observations`. **PASS** — 5 trading-day observations 26-30 Oct with per-day records. Latency warning: find_series text search took 42s.
 6. **How did USD/KES move through October?** — range 2026-10-01..31. **PASS** — 16 prints, 129.94→129.95 (5.9s).
 7. **Coverage by surface/source?** — `assess_coverage`. **PASS** — 7 segments with counts/ranges/refresh (184ms).
 8. **How fresh is FX?** — refreshed 2026-11-03T08:34Z, data through today. **PASS** (in Q7 call).
@@ -36,7 +36,7 @@ Live-tested 2026-11-03. Data state: production lane since 2026-10-12; FX 694 obs
 **Query 3: "Where is the Kenyan shilling today?"**
 1. Orientation: "Official CBK, KNBS and NSE publications; FX refreshed this morning."
 2. `find_series USD/fx` → indicative USD/KES series.
-3. `get_observations` → 129.97 mid today, 129.95 Friday — plus the CBK source URL.
+3. `find_observations` → 129.97 mid today, 129.95 Friday — plus the CBK source URL.
 4. `assess_coverage` → 7 surfaces with live refresh stamps.
 *Why it matters:* CBK indicative rates + NSE closes + KNBS inflation in one query surface replaces three manual source checks.
 
