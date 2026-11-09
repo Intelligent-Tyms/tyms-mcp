@@ -3,6 +3,7 @@
 Live-tested 2026-11-03 against the connected preview MCP. Result legend: PASS = acceptance note met; PARTIAL = usable but degraded; FAIL = acceptance note not met.
 Data state: 173 observed items, 4 declared sources (rdb, ktpress, taarifa, newtimes). Freshest 2026-11-03 (today). Smallest corpus of the four.
 
+Contract update 2026-11-09: use canonical `text` and `sourceSystem`; legacy `query` and `source` remain compatibility-only.
 
 ## The 10 queries
 
@@ -10,8 +11,8 @@ Data state: 173 observed items, 4 declared sources (rdb, ktpress, taarifa, newti
 2. **Where do I start?** — `getting_started`. **PASS** (140ms).
 3. **Latest on Rwanda trade?** — `find_articles topic=trade`. **PASS** — Kagame-WTO talks, China zero-tariff cargo growth, EAC border barriers (1369ms).
 4. **Open the Taarifa trade story.** — `inspect_article bn-rw-taarifa-105563`. **PARTIAL** — metadata fine; body unavailable (bounded_evidence_incomplete) (902ms).
-5. **What did The New Times publish this week?** — `find_articles source=newtimes publishedAfter=2026-10-27`. **PASS** — central bank banknote deadline, CHOGM investment remarks (344ms).
-6. **Headlines mentioning Kigali?** — `find_articles query="Kigali"`. **PASS** — 4 hits incl. Pakistan investment forum (4530ms).
+5. **What did The New Times publish this week?** — `find_articles sourceSystem=newtimes publishedAfter=2026-10-27`. **PASS** — central bank banknote deadline, CHOGM investment remarks (344ms).
+6. **Headlines mentioning Kigali?** — `find_articles text="Kigali"`. **PASS** — 4 hits incl. Pakistan investment forum (4530ms).
 7. **Source coverage?** — `assess_coverage`: 173 items; taarifa 83, ktpress 44, newtimes 33, rdb 13. **PASS** (1.4s single page).
 8. **How fresh is Taarifa?** — latest 2026-11-03T07:12Z, refresh 08:01Z. **PASS** (599ms).
 9. **What changed in 48h?** — `review_changes since=2026-11-01`. **FAIL** — 0 records + empty pagination (3801ms). Failure class: continuation-after-bounded-empty.
@@ -53,7 +54,7 @@ Environment: pre-production preview deployment.
 Needs a production (or full-country preview) pass once connectors are repointed; code path proven via bn-ug.
 
 ## Run 3 — production re-test (2026-11-03, ~22:20Z)
-Environment: production. (Run-2 preview gate does not apply on production.)
+Environment: production.
 
 | Q | Query | Run 1 | Run 3 (production) | Notes |
 |---|---|---|---|---|

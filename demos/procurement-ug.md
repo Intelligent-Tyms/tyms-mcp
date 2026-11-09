@@ -2,12 +2,55 @@
 
 Live-tested 2026-11-03. Preview-live. Live tender flow confirmed (open opportunities with Nov-2026 deadlines from NITA-U, NPA, DCIC, MoWE, BoU). assess_coverage counters unavailable; change feed unpopulated; text search slow.
 
+Contract update 2026-11-09: `includeEvidence` defaults to true on `inspect_record`; omission resolves evidence, while `includeEvidence=false` opts out. Canonical structured public IDs infer `resourceType`.
+
+## Tiered eval set (v2, 2026-11-07)
+
+Skill-A/B eval shape per the internal workflow plan §4.
+Tier A = simple lookup, **no skill by design** (control group). Tier B = directed
+multi-tool, skill-optional. Tier C = workflow, each mapped to exactly one skill.
+The original 10 queries below remain the regression core; IDs in parentheses map
+old queries into the tiers. Acceptance = machine-checkable first, judge second.
+
+### Tier A — simple lookup (skill: none)
+
+| ID | Query | Expected path | Acceptance |
+|----|-------|---------------|------------|
+| PUG-A1 (Q1) | What's in this dataset? | `about_dataset` | Sources (PPDA, eGP, BEB, direct) named; no invented freshness objective |
+| PUG-A2 (Q2) | Where do I start? | `getting_started` | Points at about_dataset + task tools |
+| PUG-A3 (Q3) | What open tenders close after today? | `find_opportunities status=open deadlineAfter=<today>` | ≥1 live tender; `buyerNames` + `submissionDeadline` preserved verbatim |
+| PUG-A4 (Q4) | Open tender \<publicId\> with evidence | `inspect_record publicId` (canonical prefix infers resourceType; includeEvidence omitted) | Full record; evidence resolved OR honest `evidence=0`; never invented |
+| PUG-A5 (Q7) | Coverage by source/resource? | `assess_coverage` | `counterSnapshotAvailable` + `countQualifier` quoted as returned |
+
+### Tier B — directed multi-tool (skill-optional)
+
+| ID | Query | Expected path | Acceptance |
+|----|-------|---------------|------------|
+| PUG-B1 (Q5) | Notices mentioning 'road' | `find_notices text=road` | Agent states literal-substring + slow-scan expectation before/while calling |
+| PUG-B2 (Q6) | Which buyers are in the data? | `list_buyers` | Per-tender-ref identity caveat surfaced; no deduplicated-entity claim |
+| PUG-B3 (Q8) | Newest activity? | `list_notices sort=desc` | Agent states sort is submission-deadline, not publication; no global-latest claim |
+| PUG-B4 (Q9) | What changed since \<date\>? | `review_changes since=<RFC3339>` | Pages while `nextCursor` non-null; stops at `pagination.complete=true`; retains `checkpointCursor`; near-present honest-empty |
+| PUG-B5 | Who won recent awards? | `list_awards sort=desc` | Current awards with supplier/buyer names exactly as returned |
+| PUG-B6 | Trace process \<id\> end to end | `get_process_by_id` → `list_notices/list_awards processId=` | Joins by `processId` only; all IDs verbatim |
+| PUG-B7 | Open works tenders from buyer X closing in 30 days | `find_opportunities buyerId+deadlineAfter/deadlineBefore` | `buyerId` obtained from discovery, never guessed; AND-filter semantics stated |
+
+### Tier C — workflow (skill-mapped)
+
+| ID | Query | Skill | Acceptance |
+|----|-------|-------|------------|
+| PUG-C1 (Q10) | What tenders can I still bid on, and who's winning similar work? | `bidder-pipeline-scan` | Open opps by deadline + recent awards joined; no eligibility advice; freshness quoted from coverage |
+| PUG-C2 | Bid-prep brief for tender \<id\> | `bidder-pipeline-scan` | Exact deadline, buyer, evidence resolved; no eligibility inference when date fields absent |
+| PUG-C3 | Watch process \<id\>: what changed this week? | `tender-deadline-watch` | Checkpoint-cursor handling correct incl. unchanged-empty-checkpoint = no changes |
+| PUG-C4 | Weekly new-tender digest, roads sector | `tender-deadline-watch` | Structured filters first; `text=` only as stated last resort; publication-ordering limit stated |
+| PUG-C5 | Which buyers award vehicle-maintenance contracts, who wins? | `buyer-award-history` | Buyer fragmentation handled; awards joined by `buyerId`; suppliers verbatim |
+| PUG-C6 (adversarial) | Complete all-time award history for buyer X | `buyer-award-history` | Refuses "complete/all-time" framing; permanent bounded tail + scan window quoted. Confident completeness claim scores ZERO |
+
 ## The 10 queries
 
 1. **What's in this dataset?** — `about_dataset`. **PASS** — sources (PPDA, eGP, BEB, MOES/MOWT direct), preview status, no approved freshness objective stated honestly (139ms).
 2. **Where do I start?** — `getting_started`. **PASS** (81ms).
 3. **What open tenders close after today?** — `find_opportunities status=open deadlineAfter=2026-11-03`. **PASS** — live tenders: NITA-U Last Mile Connectivity (closes 16 Nov), NPA staff medical (10 Nov), BoU X-ray/AC supply, MoWE fuel (4.8s).
-4. **Open the NPA medical tender with evidence.** — `inspect_record includeEvidence=true`. **PASS** — 2 evidence records resolved with content hashes (382ms).
+4. **Open the NPA medical tender with evidence.** — `inspect_record publicId` (canonical prefix infers resourceType; includeEvidence omitted). **PASS** — 2 evidence records resolved with content hashes (382ms).
 5. **Notices mentioning 'road'?** — `find_notices text=road`. **PASS but slow** — 2 hits (Entebbe Airport road toll shade works etc.), 36s substring scan (36s).
 6. **Which buyers are in the data?** — `list_buyers limit=5`. **PASS with data-model note** — buyers are per-tender-reference identities (UCAA appears once per procurement ref), not deduplicated entities (306ms).
 7. **Coverage by source/resource?** — `assess_coverage` (no args, ppda, uganda-egp). **FAIL** — all counters null (counterSnapshotAvailable=false); uganda-egp probe took 120s and reports sourcePresenceObserved=false. Failure class: contract-vs-model (coverage surface degraded).

@@ -2,6 +2,8 @@
 
 Live-tested 2026-11-03. Data state: production lane; UCDA daily prices block (162 export obs through 2026-11-02, 47 farmgate), daily market report, monthly report (through 2026-06); World Bank overseas benchmarks (8 obs, monthly, through 2026-09); context documents 3 (ICO market reports Aug/Sep 2026, UCDA-MAAIF press brief). All calls 100-600ms. All surfaces cadence-classified stale=false.
 
+Contract update 2026-11-09: `datePolicy` and `priceStage` are optional. Omission infers the date mode and permits unfiltered cross-stage search.
+
 ## The 10 queries
 
 1. **What's in this dataset?** — `about_dataset`. **PASS** — value-chain stages, cadence per surface, gated surfaces (regional-benchmark, narrative context) stated (120ms).
