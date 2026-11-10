@@ -10,6 +10,11 @@
     "Ed25519 key staged at ~/.config/tyms/mcp-registry-ed25519.key on the devbox).",
     "Hostname: drafts point at production mi-api.tyms.ai (verified live 2026-11-08:",
     "all 13 /mcp/{domain}/{region} routes answer 401 + RFC 9728 resource_metadata).",
+    "2026-11-10: canonical mounts moved to /mcp/mi/{domain}/{region} and the unified",
+    "surface /mcp/mi shipped (tyms-mi-api PR #12); legacy /mcp/{domain}/{region}",
+    "paths 308-redirect. Draft URLs updated to the canonical mounts; an",
+    "ai.tyms/market-intelligence draft for the unified surface was added and is the",
+    "recommended listing. Publication remains on HOLD pending owner approval.",
     "Descriptions are capped at 100 chars by the registry; all drafts comply (see _descriptionLengths).",
     "supportedProtocolVersions matches what production serves: the 2026-11-08 deploy",
     "(version c33e0a70, master f996a25 incl. v2 SDK 0acb012) ships 2025-03-26, 2025-06-18 and",
@@ -30,6 +35,7 @@
     "ai.tyms/financial-markets-ug": 79,
     "ai.tyms/land-property-ug": 76,
     "ai.tyms/logistics-ea": 83,
+    "ai.tyms/market-intelligence": 91,
     "ai.tyms/mining-ug": 75,
     "ai.tyms/procurement-ug": 84
   },
@@ -44,7 +50,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/business-news/ke",
+          "url": "https://mi-api.tyms.ai/mcp/mi/business-news/ke",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",
@@ -63,7 +69,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/business-news/rw",
+          "url": "https://mi-api.tyms.ai/mcp/mi/business-news/rw",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",
@@ -82,7 +88,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/business-news/tz",
+          "url": "https://mi-api.tyms.ai/mcp/mi/business-news/tz",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",
@@ -101,7 +107,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/business-news/ug",
+          "url": "https://mi-api.tyms.ai/mcp/mi/business-news/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",
@@ -120,7 +126,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/capital-deployment/africa",
+          "url": "https://mi-api.tyms.ai/mcp/mi/capital-deployment/africa",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",
@@ -139,7 +145,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/coffee-prices/ug",
+          "url": "https://mi-api.tyms.ai/mcp/mi/coffee-prices/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",
@@ -158,7 +164,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/financial-markets/ke",
+          "url": "https://mi-api.tyms.ai/mcp/mi/financial-markets/ke",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",
@@ -177,7 +183,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/financial-markets/ug",
+          "url": "https://mi-api.tyms.ai/mcp/mi/financial-markets/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",
@@ -196,7 +202,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/land-property/ug",
+          "url": "https://mi-api.tyms.ai/mcp/mi/land-property/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",
@@ -215,7 +221,26 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/logistics/ea",
+          "url": "https://mi-api.tyms.ai/mcp/mi/logistics/ea",
+          "supportedProtocolVersions": [
+            "2025-03-26",
+            "2025-06-18",
+            "2025-11-25"
+          ]
+        }
+      ]
+    },
+    {
+      "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "name": "ai.tyms/market-intelligence",
+      "title": "Tyms Market Intelligence",
+      "description": "One MCP for every Tyms dataset: procurement, news, markets, logistics, mining, land, coffee",
+      "version": "1.0.0",
+      "websiteUrl": "https://mi-api.tyms.ai/demo?utm_source=mcp-registry&utm_medium=listing&utm_campaign=wave1&venue=mcp-registry",
+      "remotes": [
+        {
+          "type": "streamable-http",
+          "url": "https://mi-api.tyms.ai/mcp/mi",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",
@@ -234,7 +259,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/mining/ug",
+          "url": "https://mi-api.tyms.ai/mcp/mi/mining/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",
@@ -253,7 +278,7 @@
       "remotes": [
         {
           "type": "streamable-http",
-          "url": "https://mi-api.tyms.ai/mcp/procurement/ug",
+          "url": "https://mi-api.tyms.ai/mcp/mi/procurement/ug",
           "supportedProtocolVersions": [
             "2025-03-26",
             "2025-06-18",

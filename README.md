@@ -1,25 +1,26 @@
 # [Tyms](https://tyms.ai) Market Intelligence — MCP servers
 
-Tyms Market Intelligence is a family of 12 hosted, read-only [MCP](https://modelcontextprotocol.io) servers giving AI agents curated, verification-statused market data for East Africa — Uganda, Kenya, Tanzania, Rwanda, and pan-African capital flows. Every record carries a verification status, source attribution and evidence links, and every dataset answers honestly about its own coverage through dedicated coverage and change-feed tools.
+Tyms Market Intelligence is a family of hosted, read-only [MCP](https://modelcontextprotocol.io) servers — **one unified endpoint covering every dataset, plus 12 per-dataset bundles** — giving AI agents curated, verification-statused market data for East Africa — Uganda, Kenya, Tanzania, Rwanda, and pan-African capital flows. Every record carries a verification status, source attribution and evidence links, and every dataset answers honestly about its own coverage through dedicated coverage and change-feed tools.
 
 ## Bundles
 
-All endpoints are Streamable HTTP MCP servers at `https://mi-api.tyms.ai/mcp/{domain}/{region}`.
+All endpoints are Streamable HTTP MCP servers. The **unified surface** `https://mi-api.tyms.ai/mcp/mi` is the recommended connection: one MCP whose `list_datasets` tool enumerates every dataset and whose `call_dataset_tool` dispatches into them. The 12 per-dataset bundles remain available at `https://mi-api.tyms.ai/mcp/mi/{domain}/{region}` for pinning and dedicated use.
 
 | Bundle | Endpoint | Tools | What it covers | Cursor |
 |---|---|---|---|---|
-| Tyms Procurement — Uganda | `https://mi-api.tyms.ai/mcp/procurement/ug` | 46 | Uganda public procurement: notices, awards, contracts, buyers, suppliers, debarments | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-procurement-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9wcm9jdXJlbWVudC91Zz92ZW51ZT1naXRodWIifQ) |
-| Tyms Business News — Uganda | `https://mi-api.tyms.ai/mcp/business-news/ug` | 5 | Curated Uganda business news from national sources, with verification status and coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9idXNpbmVzcy1uZXdzL3VnP3ZlbnVlPWdpdGh1YiJ9) |
-| Tyms Business News — Kenya | `https://mi-api.tyms.ai/mcp/business-news/ke` | 5 | Curated Kenya business news from national sources, with verification status and coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-ke&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9idXNpbmVzcy1uZXdzL2tlP3ZlbnVlPWdpdGh1YiJ9) |
-| Tyms Business News — Tanzania | `https://mi-api.tyms.ai/mcp/business-news/tz` | 5 | Curated Tanzania business news from national sources, with verification status and coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-tz&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9idXNpbmVzcy1uZXdzL3R6P3ZlbnVlPWdpdGh1YiJ9) |
-| Tyms Business News — Rwanda | `https://mi-api.tyms.ai/mcp/business-news/rw` | 5 | Curated Rwanda business news from national sources, with verification status and coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-rw&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9idXNpbmVzcy1uZXdzL3J3P3ZlbnVlPWdpdGh1YiJ9) |
-| Tyms Financial Markets — Uganda | `https://mi-api.tyms.ai/mcp/financial-markets/ug` | 10 | Bank of Uganda FX rates, T-bills and money-market series with coverage metadata | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-financial-markets-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9maW5hbmNpYWwtbWFya2V0cy91Zz92ZW51ZT1naXRodWIifQ) |
-| Tyms Financial Markets — Kenya | `https://mi-api.tyms.ai/mcp/financial-markets/ke` | 10 | Kenya financial-market series: FX, yields and macro data with coverage metadata | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-financial-markets-ke&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9maW5hbmNpYWwtbWFya2V0cy9rZT92ZW51ZT1naXRodWIifQ) |
-| Tyms Logistics — East Africa | `https://mi-api.tyms.ai/mcp/logistics/ea` | 16 | East Africa logistics: corridor KPIs, fuel prices, trade flows and policy documents | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-logistics-ea&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9sb2dpc3RpY3MvZWE_dmVudWU9Z2l0aHViIn0) |
-| Tyms Capital Deployment — Africa | `https://mi-api.tyms.ai/mcp/capital-deployment/africa` | 8 | African capital deployment: projects, deals, commitments and reports with evidence links | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-capital-deployment-africa&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9jYXBpdGFsLWRlcGxveW1lbnQvYWZyaWNhP3ZlbnVlPWdpdGh1YiJ9) |
-| Tyms Mining — Uganda | `https://mi-api.tyms.ai/mcp/mining/ug` | 8 | Uganda mining licences and grant events with evidence and coverage tracking | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-mining-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taW5pbmcvdWc_dmVudWU9Z2l0aHViIn0) |
-| Tyms Land & Property — Uganda | `https://mi-api.tyms.ai/mcp/land-property/ug` | 16 | Uganda land and property: public notices, price indices and market snapshots | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-land-property-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9sYW5kLXByb3BlcnR5L3VnP3ZlbnVlPWdpdGh1YiJ9) |
-| Tyms Coffee Prices — Uganda | `https://mi-api.tyms.ai/mcp/coffee-prices/ug` | 10 | Uganda coffee prices: UCDA farmgate and export series, World Bank benchmarks, with coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-coffee-prices-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9jb2ZmZWUtcHJpY2VzL3VnP3ZlbnVlPWdpdGh1YiJ9) |
+| **Tyms Market Intelligence (unified)** | `https://mi-api.tyms.ai/mcp/mi` | 5 meta + dispatch | One MCP for every Tyms dataset: discovery (`list_datasets`, `describe_dataset`) plus `call_dataset_tool` dispatch into all bundles | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-market-intelligence&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taT92ZW51ZT1naXRodWIifQ) |
+| Tyms Procurement — Uganda | `https://mi-api.tyms.ai/mcp/mi/procurement/ug` | 46 | Uganda public procurement: notices, awards, contracts, buyers, suppliers, debarments | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-procurement-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9wcm9jdXJlbWVudC91Zz92ZW51ZT1naXRodWIifQ) |
+| Tyms Business News — Uganda | `https://mi-api.tyms.ai/mcp/mi/business-news/ug` | 5 | Curated Uganda business news from national sources, with verification status and coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9idXNpbmVzcy1uZXdzL3VnP3ZlbnVlPWdpdGh1YiJ9) |
+| Tyms Business News — Kenya | `https://mi-api.tyms.ai/mcp/mi/business-news/ke` | 5 | Curated Kenya business news from national sources, with verification status and coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-ke&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9idXNpbmVzcy1uZXdzL2tlP3ZlbnVlPWdpdGh1YiJ9) |
+| Tyms Business News — Tanzania | `https://mi-api.tyms.ai/mcp/mi/business-news/tz` | 5 | Curated Tanzania business news from national sources, with verification status and coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-tz&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9idXNpbmVzcy1uZXdzL3R6P3ZlbnVlPWdpdGh1YiJ9) |
+| Tyms Business News — Rwanda | `https://mi-api.tyms.ai/mcp/mi/business-news/rw` | 5 | Curated Rwanda business news from national sources, with verification status and coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-business-news-rw&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9idXNpbmVzcy1uZXdzL3J3P3ZlbnVlPWdpdGh1YiJ9) |
+| Tyms Financial Markets — Uganda | `https://mi-api.tyms.ai/mcp/mi/financial-markets/ug` | 10 | Bank of Uganda FX rates, T-bills and money-market series with coverage metadata | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-financial-markets-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9maW5hbmNpYWwtbWFya2V0cy91Zz92ZW51ZT1naXRodWIifQ) |
+| Tyms Financial Markets — Kenya | `https://mi-api.tyms.ai/mcp/mi/financial-markets/ke` | 10 | Kenya financial-market series: FX, yields and macro data with coverage metadata | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-financial-markets-ke&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9maW5hbmNpYWwtbWFya2V0cy9rZT92ZW51ZT1naXRodWIifQ) |
+| Tyms Logistics — East Africa | `https://mi-api.tyms.ai/mcp/mi/logistics/ea` | 16 | East Africa logistics: corridor KPIs, fuel prices, trade flows and policy documents | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-logistics-ea&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9sb2dpc3RpY3MvZWE_dmVudWU9Z2l0aHViIn0) |
+| Tyms Capital Deployment — Africa | `https://mi-api.tyms.ai/mcp/mi/capital-deployment/africa` | 8 | African capital deployment: projects, deals, commitments and reports with evidence links | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-capital-deployment-africa&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9jYXBpdGFsLWRlcGxveW1lbnQvYWZyaWNhP3ZlbnVlPWdpdGh1YiJ9) |
+| Tyms Mining — Uganda | `https://mi-api.tyms.ai/mcp/mi/mining/ug` | 8 | Uganda mining licences and grant events with evidence and coverage tracking | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-mining-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9taW5pbmcvdWc_dmVudWU9Z2l0aHViIn0) |
+| Tyms Land & Property — Uganda | `https://mi-api.tyms.ai/mcp/mi/land-property/ug` | 16 | Uganda land and property: public notices, price indices and market snapshots | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-land-property-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9sYW5kLXByb3BlcnR5L3VnP3ZlbnVlPWdpdGh1YiJ9) |
+| Tyms Coffee Prices — Uganda | `https://mi-api.tyms.ai/mcp/mi/coffee-prices/ug` | 10 | Uganda coffee prices: UCDA farmgate and export series, World Bank benchmarks, with coverage | [Install in Cursor](https://cursor.com/en/install-mcp?name=tyms-coffee-prices-ug&config=eyJ1cmwiOiJodHRwczovL21pLWFwaS50eW1zLmFpL21jcC9taS9jb2ZmZWUtcHJpY2VzL3VnP3ZlbnVlPWdpdGh1YiJ9) |
 
 Tool counts are **real-route full-scope catalogue totals**: every task, specialist, compatibility and feedback tool served by the production routes, excluding only the two onboarding tools (`about_dataset`/`getting_started`). `send_feedback` and full-scope diagnostic tools are included, so procurement is 46 here and 44 with normal read scopes (48 and 46 including the two onboarding tools). Because tools are scope-filtered per caller, a connected client with narrow scopes may see fewer.
 
@@ -27,11 +28,13 @@ Tool counts are **real-route full-scope catalogue totals**: every task, speciali
 
 ### Claude (ai / Desktop / Code)
 
-Add a custom connector with any bundle endpoint, for example:
+Add a custom connector with the unified endpoint (recommended — one connection covers every dataset):
 
 ```
-https://mi-api.tyms.ai/mcp/procurement/ug?venue=github
+https://mi-api.tyms.ai/mcp/mi?venue=github
 ```
+
+Or use any per-dataset bundle endpoint, for example `https://mi-api.tyms.ai/mcp/mi/procurement/ug?venue=github`.
 
 Claude discovers the OAuth flow automatically and prompts you to sign in with Tyms.
 
@@ -44,7 +47,7 @@ Add to your `mcp.json`:
   "servers": {
     "tyms-procurement-ug": {
       "type": "http",
-      "url": "https://mi-api.tyms.ai/mcp/procurement/ug?venue=github"
+      "url": "https://mi-api.tyms.ai/mcp/mi/procurement/ug?venue=github"
     }
   }
 }

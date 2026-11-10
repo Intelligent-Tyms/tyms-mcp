@@ -1,40 +1,43 @@
 {
   "mcpServers": {
+    "tyms-market-intelligence": {
+      "url": "https://mi-api.tyms.ai/mcp/mi?venue=cursor"
+    },
     "tyms-procurement-ug": {
-      "url": "https://mi-api.tyms.ai/mcp/procurement/ug?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/procurement/ug?venue=cursor"
     },
     "tyms-business-news-ug": {
-      "url": "https://mi-api.tyms.ai/mcp/business-news/ug?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/business-news/ug?venue=cursor"
     },
     "tyms-business-news-ke": {
-      "url": "https://mi-api.tyms.ai/mcp/business-news/ke?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/business-news/ke?venue=cursor"
     },
     "tyms-business-news-tz": {
-      "url": "https://mi-api.tyms.ai/mcp/business-news/tz?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/business-news/tz?venue=cursor"
     },
     "tyms-business-news-rw": {
-      "url": "https://mi-api.tyms.ai/mcp/business-news/rw?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/business-news/rw?venue=cursor"
     },
     "tyms-financial-markets-ug": {
-      "url": "https://mi-api.tyms.ai/mcp/financial-markets/ug?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/financial-markets/ug?venue=cursor"
     },
     "tyms-financial-markets-ke": {
-      "url": "https://mi-api.tyms.ai/mcp/financial-markets/ke?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/financial-markets/ke?venue=cursor"
     },
     "tyms-logistics-ea": {
-      "url": "https://mi-api.tyms.ai/mcp/logistics/ea?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/logistics/ea?venue=cursor"
     },
     "tyms-capital-deployment-africa": {
-      "url": "https://mi-api.tyms.ai/mcp/capital-deployment/africa?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/capital-deployment/africa?venue=cursor"
     },
     "tyms-mining-ug": {
-      "url": "https://mi-api.tyms.ai/mcp/mining/ug?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/mining/ug?venue=cursor"
     },
     "tyms-land-property-ug": {
-      "url": "https://mi-api.tyms.ai/mcp/land-property/ug?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/land-property/ug?venue=cursor"
     },
     "tyms-coffee-prices-ug": {
-      "url": "https://mi-api.tyms.ai/mcp/coffee-prices/ug?venue=cursor"
+      "url": "https://mi-api.tyms.ai/mcp/mi/coffee-prices/ug?venue=cursor"
     }
   }
 }
